@@ -35,6 +35,7 @@
             justify-content: center;
         }
     </style>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -45,33 +46,31 @@
                 <div class="col-9 col-sm-7 col-md-5 col-lg-3 p-0 m-0">
                     <div class="card">
                         <div class="card-body m-0">
-                            <form action="">
-                                <h3>Iniciar Sesión</h3>
+                            <h3>Iniciar Sesión</h3>
 
-                                <div class="form-group">
-                                    <label for="ipt-usuario">Usuario:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fas fa-user"></i></div>
-                                        </div>
-                                        <input type="text" name="usuario" id="ipt-usuario" class="form-control" required>
+                            <div class="form-group">
+                                <label for="ipt-usuario">Usuario:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-user"></i></div>
                                     </div>
+                                    <input type="text" name="usuario" id="ipt-usuario" class="form-control" required>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="ipt-contrasenia">Contraseña:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fas fa-lock"></i></div>
-                                        </div>
-                                        <input type="password" name="usuario" id="ipt-contrasenia" class="form-control" required>
+                            <div class="form-group">
+                                <label for="ipt-contrasenia">Contraseña:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-lock"></i></div>
                                     </div>
+                                    <input type="password" name="usuario" id="ipt-contrasenia" class="form-control" required>
                                 </div>
+                            </div>
 
-                                <div class="form-group text-center mt-5">
-                                    <input type="submit" value="Accesar" class="btn btn-primary">
-                                </div>
-                            </form>
+                            <div class="form-group text-center mt-5">
+                                <input type="button" value="Accesar" id="btn-login" class="btn btn-primary">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,9 +85,33 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        let year = new Date().getFullYear();
-        let msg = "&copy; " + year + " Madhouse Productions";
-        document.getElementById("footer-msg").innerHTML = msg;
+
+        $(document).ready(function(){
+            $('#footer-msg').html('&copy; ' + (new Date().getFullYear()) + ' Madhouse Productions');
+        });
+
+        $('#btn-login').on('click', function(e){
+
+            let user = $('#ipt-usuario').val();
+            let password = $('#ipt-contrasenia').val();
+
+            //e.preventDefault();
+     
+            $.ajax({
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/inicio-sesion',
+                data: {
+                    username: $('#ipt-usuario').val(),
+                    password: $('#ipt-contrasenia').val()
+                }
+            }).done(function(data){
+                console.log(data)
+            });
+        });
+
     </script>
 </body>
 
