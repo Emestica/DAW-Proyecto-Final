@@ -5,6 +5,7 @@ namespace App\Utils;
 class Constantes {
 
     public const PAGE_NAME_HOME = 'Principal';
+    public const PAGE_NAME_ROLS = 'Roles';
 
     public const CODE_SUCCESSFULLY = 0;
     public const MSG_SUCCESSFUL = 'Operaci&otilde;n Ejecutada Correctamente';

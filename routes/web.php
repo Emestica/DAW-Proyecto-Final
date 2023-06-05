@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 Route::post('/inicio-sesion', [HomeController::class, 'login']);
 Route::get('/principal', [HomeController::class, 'home']);
+
+Route::get('/roles', [HomeController::class, 'roles']);

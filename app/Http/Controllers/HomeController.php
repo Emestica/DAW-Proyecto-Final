@@ -18,4 +18,8 @@ class HomeController extends Controller
     public function home(){
         return view('general.home', [ 'pageName' => Constantes::PAGE_NAME_HOME ]);
     }
+
+    public function roles(){
+        return view('security.rols', [ 'pageName' => Constantes::PAGE_NAME_ROLS ]);
+    }
 }
