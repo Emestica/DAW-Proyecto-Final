@@ -37,7 +37,7 @@
         </form>
     </div>
     <div class="card-footer">
-
+        <button type="submit" class="btn btn-primary" style="float: right;">Guardar</button>
     </div>
 </div>
 <hr>

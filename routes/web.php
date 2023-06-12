@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SecurityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeController::class, 'index']);
 
-Route::post('/inicio-sesion', [HomeController::class, 'login']);
+Route::post('/inicio-sesion', [SecurityController::class, 'inicarSesion']);
+
 Route::get('/principal', [HomeController::class, 'home']);
 
-Route::get('/roles', [HomeController::class, 'roles']);
+Route::get('/roles', [CatalogController::class, 'roles']);
+Route::get('/dashboard', [DashboardController::class, 'index']);

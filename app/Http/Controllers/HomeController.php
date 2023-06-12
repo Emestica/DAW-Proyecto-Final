@@ -8,18 +8,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function login(Request $request){
-        $user = $request->username;
-        $password = $request->password;
-        $obj = new UserRepository();
-        return response()->json(json_encode($obj->validacionUsuario($user, $password)));
+    public function index(){
+        return view('login', [ 'pageName' => Constantes::PAGE_NAME_LOGIN]);
     }
 
     public function home(){
         return view('general.home', [ 'pageName' => Constantes::PAGE_NAME_HOME ]);
-    }
-
-    public function roles(){
-        return view('security.rols', [ 'pageName' => Constantes::PAGE_NAME_ROLS ]);
     }
 }
