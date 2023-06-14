@@ -14,6 +14,6 @@ class OpcionesSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

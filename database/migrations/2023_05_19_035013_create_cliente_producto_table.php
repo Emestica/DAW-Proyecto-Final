@@ -23,7 +23,7 @@ return new class extends Migration
             $table->decimal('valor_interes', 18)->nullable();
             $table->decimal('valor_interes_pagado', 18)->nullable();
             $table->decimal('valor_cuota', 18)->nullable();
-            $table->integer('cantidad_meses')->nullable();
+            $table->integer('cantidad_meses', 2)->nullable();
             $table->date('fecha_inicio')->nullable();
             $table->date('fecha_finalizacion_estimada')->nullable();
             $table->date('fecha_finalizacion')->nullable();

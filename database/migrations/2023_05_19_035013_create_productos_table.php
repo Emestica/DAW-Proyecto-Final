@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->bigIncrements('id_producto');
-            $table->unsignedBigInteger('id_clasificacion')->index('fk_productos_clasificaciones');
+            $table->string('tipo_producto', 250)->nullable();
             $table->string('descripcion', 250)->nullable();
             $table->char('estado', 1)->nullable();
             $table->dateTime('fecha_creacion')->nullable()->useCurrent();

@@ -14,6 +14,6 @@ class Opcion_RolSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

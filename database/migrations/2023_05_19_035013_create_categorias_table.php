@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->bigIncrements('id_categoria');
-            $table->string('categoria', 50)->nullable();
+            $table->string('categoria', 150)->nullable();
             $table->string('descripcion', 150)->nullable();
             $table->float('porcentaje', 10, 0)->nullable();
             $table->decimal('porcentaje_decimal')->nullable();

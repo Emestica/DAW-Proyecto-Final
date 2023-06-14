@@ -16,31 +16,31 @@ class UsuariosSeeder extends Seeder
     public function run()
     {
         $datos = array(
-            array(
+            [
                 'usuario' => 'root',
                 'contrasenia' => '12345',
                 'estado' => 'A'
-            ),
-            array(
+            ],
+            [
                 'usuario' => 'aemestica',
                 'contrasenia' => '12345',
                 'estado' => 'A'
-            ),
-            array(
+            ],
+            [
                 'usuario' => 'vruiz',
                 'contrasenia' => '12345',
                 'estado' => 'A'
-            ),
-            array(
+            ],
+            [
                 'usuario' => 'gandrade',
                 'contrasenia' => '12345',
                 'estado' => 'A'
-            ),
-            array(
+            ],
+            [
                 'usuario' => 'user_test',
                 'contrasenia' => '12345',
                 'estado' => 'A'
-            )
+            ]
         );
 
         DB::table('usuarios')->insert($datos);
