@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categorias', function (Blueprint $table) {
-            $table->bigIncrements('id_categoria');
-            $table->string('categoria', 50)->nullable();
-            $table->string('descripcion', 150)->nullable();
-            $table->float('porcentaje', 10, 0)->nullable();
-            $table->decimal('porcentaje_decimal')->nullable();
+        Schema::create('productos', function (Blueprint $table) {
+            $table->bigIncrements('id_producto');
+            $table->string('tipo_producto', 250)->nullable();
+            $table->string('descripcion', 250)->nullable();
             $table->char('estado', 1)->nullable();
             $table->dateTime('fecha_creacion')->nullable()->useCurrent();
             $table->dateTime('fecha_modificacion')->nullable();
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('productos');
     }
 };

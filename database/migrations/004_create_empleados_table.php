@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('nit', 25)->nullable();
             $table->date('fecha_ingreso')->nullable();
             $table->date('fecha_salida')->nullable();
-            $table->string('area_trabajo', 50)->nullable();
+            $table->string('area_trabajo', 100)->nullable();
             $table->char('estado', 1)->nullable();
             $table->dateTime('fecha_creacion')->nullable()->useCurrent();
             $table->dateTime('fecha_modificacion')->nullable();
