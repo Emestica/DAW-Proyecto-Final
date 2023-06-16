@@ -17,7 +17,7 @@ class Cliente_NumeroSeeder extends Seeder
     {
         $data = array(
             [
-
+                'id_cliente' => 1,
                 'numero'=>'6130-7180',
                 'tipo' => 'numero personal',
                 'estado'=>'A'
@@ -25,7 +25,7 @@ class Cliente_NumeroSeeder extends Seeder
             ],
 
             [
-
+                'id_cliente' => 2,
                 'numero'=>'2214-2323',
                 'tipo' => 'numero de oficina',
                 'estado'=>'D'
@@ -33,7 +33,7 @@ class Cliente_NumeroSeeder extends Seeder
             ],
 
             [
-
+                'id_cliente' => 3,
                 'numero'=>'6163-8019',
                 'tipo' => 'numero personal',
                 'estado'=>'A'
@@ -41,7 +41,7 @@ class Cliente_NumeroSeeder extends Seeder
             ],
 
             [
-
+                'id_cliente' => 4,
                 'numero'=>'6130-7777',
                 'tipo' => 'numero de casa',
                 'estado'=>'A'
@@ -49,7 +49,7 @@ class Cliente_NumeroSeeder extends Seeder
             ],
 
             [
-
+                'id_cliente' => 5,
                 'numero'=>'2232-2000',
                 'tipo' => 'numero de oficina',
                 'estado'=>'D'

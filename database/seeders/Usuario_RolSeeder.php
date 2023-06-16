@@ -17,23 +17,31 @@ class Usuario_RolSeeder extends Seeder
     {
         $data = array(
 
-  [
+  [              'id_usuario' => 1,
+                  'id_rol' => 1,
                 'estado'=>'A',
                 'usuario_creacion'=>'root'
                ],
                [
+                'id_usuario' => 3,
+                  'id_rol' => 2,
                    'estado'=>'A',
                    'usuario_creacion'=>'root'
                   ],
                   [
+                    'id_usuario' => 2,
+                  'id_rol' => 2,
+                   'estado'=>'A',
+                   'usuario_creacion'=>'root'
+                  ],
+                  ['id_usuario' => 5,
+                  'id_rol' => 3,
                    'estado'=>'A',
                    'usuario_creacion'=>'root'
                   ],
                   [
-                   'estado'=>'A',
-                   'usuario_creacion'=>'root'
-                  ],
-                  [
+                    'id_usuario' => 4,
+                  'id_rol' => 1,
                    'estado'=>'A',
                    'usuario_creacion'=>'root'
                   ],

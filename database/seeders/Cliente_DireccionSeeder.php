@@ -17,6 +17,7 @@ class Cliente_DireccionSeeder extends Seeder
     {
         $data = array([
 
+            'id_cliente' => 1,
             'direccion' => 'Las chilas Pol 20 casa 15, Comasagua',
             'municipio' => 'Comasagua',
             'departamento'=>'La Libertad',
@@ -25,7 +26,7 @@ class Cliente_DireccionSeeder extends Seeder
 
         ],
         [
-
+            'id_cliente' => 3,
             'direccion' => 'Colonia San Benito C C Feria Rosa Cl a Sta Tecla Loc 104-D San Salvador',
             'municipio' => 'San salvador',
             'departamento'=>'San salvador',
@@ -34,7 +35,7 @@ class Cliente_DireccionSeeder extends Seeder
 
         ],
         [
-
+            'id_cliente' => 2,
             'direccion' => 'Col. Escalón
             Calle el Mirador y 95 Av',
             'municipio' => 'San salvador',
@@ -44,7 +45,7 @@ class Cliente_DireccionSeeder extends Seeder
 
         ],
         [
-
+            'id_cliente' => 4,
             'direccion' => 'Urbanizacion Y Pasaje Palomo 4, Número 10, Colonia Layco. , San Miguelito',
             'municipio' => 'San salvador',
             'departamento'=>'San salvador',
@@ -55,6 +56,7 @@ class Cliente_DireccionSeeder extends Seeder
 
         [
 
+            'id_cliente' => 5,
             'direccion' => 'Urbanizacion Villa Lourdes, Lourdes Colon ',
             'municipio' => 'Lourdes Colon',
             'departamento'=>'La Libertad',
