@@ -17,22 +17,32 @@ class Usuario_ClienteSeeder extends Seeder
     {
     $data = array(
         [
+            'id_cliente' => 1,
+            'id_usuario' => 6,
          'estado'=>'A',
          'usuario_creacion'=>'root'
         ],
         [
+            'id_cliente' => 2,
+            'id_usuario' => 7,
             'estado'=>'D',
             'usuario_creacion'=>'root'
            ],
            [
+            'id_cliente' => 3,
+            'id_usuario' => 8,
             'estado'=>'A',
             'usuario_creacion'=>'root'
            ],
            [
+            'id_cliente' => 4,
+            'id_usuario' => 9,
             'estado'=>'D',
             'usuario_creacion'=>'root'
            ],
            [
+            'id_cliente' => 5,
+            'id_usuario' => 10,
             'estado'=>'A',
             'usuario_creacion'=>'root'
            ],

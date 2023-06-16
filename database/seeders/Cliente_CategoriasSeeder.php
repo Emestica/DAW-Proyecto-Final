@@ -16,23 +16,33 @@ class Cliente_CategoriasSeeder extends Seeder
     public function run()
     {
     $datos = array(
-        [
-            'estado'=>'A',
-            'usuario_creacion'=>'root'
+            [
+                'id_cliente' => 1,
+                'id_categoria' => 1,
+                'estado'=>'A',
+                'usuario_creacion'=>'root'
            ],
            [
+            'id_cliente' => 2,
+            'id_categoria' => 2,
                'estado'=>'D',
                'usuario_creacion'=>'root'
               ],
               [
+                'id_cliente' => 3,
+                'id_categoria' => 3,
                'estado'=>'A',
                'usuario_creacion'=>'root'
               ],
               [
+                'id_cliente' => 4,
+                'id_categoria' => 1,
                'estado'=>'D',
                'usuario_creacion'=>'root'
               ],
               [
+                'id_cliente' => 5,
+                'id_categoria' => 2,
                'estado'=>'A',
                'usuario_creacion'=>'root'
               ],

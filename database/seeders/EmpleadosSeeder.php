@@ -31,7 +31,7 @@ class EmpleadosSeeder extends Seeder
             'nit' => '0651-2990202-0000',
             'fecha_ingreso' => Carbon::create(2022, 4, 1)->format('y-m-d'),
             'fecha_salida' => Carbon::create(2023, 1, 20)->format('y-m-d'),
-            'area_trabajo' => 'Gerente de contabilidad',
+            'area_trabajo' => 'Contabilidad',
             'estado' => 'A',
             'usuario_creacion'=> 'root'
 
@@ -51,7 +51,7 @@ class EmpleadosSeeder extends Seeder
             'nit' => '0754-2440204-0001',
             'fecha_ingreso' => Carbon::create(2022, 4, 1)->format('y-m-d'),
             'fecha_salida' => Carbon::create(2023, 1, 20)->format('y-m-d'),
-            'area_trabajo' => 'Empleado de ventanilla',
+            'area_trabajo' => 'Ventanilla',
             'estado' => 'D',
             'usuario_creacion'=> 'root'
 
@@ -71,7 +71,7 @@ class EmpleadosSeeder extends Seeder
             'nit' => '0753-2302344-0032',
             'fecha_ingreso' => Carbon::create(2022, 4, 1)->format('y-m-d'),
             'fecha_salida' => Carbon::create(2023, 1, 20)->format('y-m-d'),
-            'area_trabajo' => 'Analista de créditos',
+            'area_trabajo' => 'Créditos',
             'estado' => 'A',
             'usuario_creacion'=> 'root'
 
@@ -87,11 +87,11 @@ class EmpleadosSeeder extends Seeder
             'celular' => '6140-0620',
             'correo_electronico_personal' => 'cristoferale1990@gmail.com',
             'correo_electronico_institucional' => 'cristofer.javier23@ban.com',
-            'dui' => '043071777-9',
+            'dui' => '43071777-9',
             'nit' => '0354-234562-0233',
             'fecha_ingreso' => Carbon::create(2022, 4, 1)->format('y-m-d'),
             'fecha_salida' => Carbon::create(2023, 1, 20)->format('y-m-d'),
-            'area_trabajo' => 'Supervisor directo de personal administrativo de atención al cliente',
+            'area_trabajo' => 'Atención al cliente',
             'estado' => 'D',
             'usuario_creacion'=> 'root'
 
@@ -111,7 +111,7 @@ class EmpleadosSeeder extends Seeder
             'nit' => '0434-2444203-4301',
             'fecha_ingreso' => Carbon::create(2022, 4, 1)->format('y-m-d'),
             'fecha_salida' => Carbon::create(2023, 1, 20)->format('y-m-d'),
-            'area_trabajo' => 'Gerente de sucursal de entidad financiera',
+            'area_trabajo' => 'Gerencia',
             'estado' => 'A',
             'usuario_creacion'=> 'root'
 
