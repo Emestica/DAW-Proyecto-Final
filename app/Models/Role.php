@@ -22,7 +22,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $usuario_creacion
  * @property string|null $usuario_modificacion
  * 
- * @property Collection|OpcionRol[] $opcion_rols
  * @property Collection|UsuarioRol[] $usuario_rols
  *
  * @package App\Models
@@ -47,11 +46,6 @@ class Role extends Model
 		'usuario_creacion',
 		'usuario_modificacion'
 	];
-
-	public function opcion_rols()
-	{
-		return $this->hasMany(OpcionRol::class, 'id_rol');
-	}
 
 	public function usuario_rols()
 	{

@@ -14,15 +14,14 @@ use Illuminate\Database\Eloquent\Model;
  * Class Producto
  * 
  * @property int $id_producto
- * @property int $id_clasificacion
  * @property string|null $descripcion
+ * @property string|null $tipo_producto
  * @property string|null $estado
  * @property Carbon|null $fecha_creacion
  * @property Carbon|null $fecha_modificacion
  * @property string|null $usuario_creacion
  * @property string|null $usuario_modificacion
  * 
- * @property Clasificacione $clasificacione
  * @property Collection|Cliente[] $clientes
  *
  * @package App\Models
@@ -34,25 +33,19 @@ class Producto extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'id_clasificacion' => 'int',
 		'fecha_creacion' => 'datetime',
 		'fecha_modificacion' => 'datetime'
 	];
 
 	protected $fillable = [
-		'id_clasificacion',
 		'descripcion',
+		'tipo_producto',
 		'estado',
 		'fecha_creacion',
 		'fecha_modificacion',
 		'usuario_creacion',
 		'usuario_modificacion'
 	];
-
-	public function clasificacione()
-	{
-		return $this->belongsTo(Clasificacione::class, 'id_clasificacion');
-	}
 
 	public function clientes()
 	{
