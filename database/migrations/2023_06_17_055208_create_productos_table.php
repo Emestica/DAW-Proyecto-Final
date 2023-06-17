@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('clasificaciones', function (Blueprint $table) {
-            $table->bigIncrements('id_clasificacion');
-            $table->string('clasificacion', 50)->nullable();
+        Schema::create('productos', function (Blueprint $table) {
+            $table->bigIncrements('id_producto');
             $table->string('descripcion', 250)->nullable();
+            $table->string('tipo_producto', 50)->nullable();
             $table->char('estado', 1)->nullable();
             $table->dateTime('fecha_creacion')->nullable()->useCurrent();
             $table->dateTime('fecha_modificacion')->nullable();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clasificaciones');
+        Schema::dropIfExists('productos');
     }
 };

@@ -1,4 +1,4 @@
-@extends('layout\main-layout')
+@extends('general\layout')
 
 @section('contenido')
 
