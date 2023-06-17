@@ -7,10 +7,7 @@ use Illuminate\Http\Request;
 
 class CatalogController extends Controller
 {
-    /**
-     * Vistas
-     */
-    public function roles(){
-        return view('security.rols', [ 'pageName' => Constantes::PAGE_NAME_ROLS ]);
+    public function rols(){
+        return view('catalog.rols', [ 'pageName' => Constantes::PAGE_NAME_ROLS ]);
     }
 }
