@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Repository\UserRepository;
 use App\Utils\Constantes;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class SecurityController extends Controller
 {
-    public function inicarSesion(Request $request) {
+    public function login(){
+        return view('login', [ 'pageName' => Constantes::PAGE_NAME_LOGIN]);
+    }
+
+    public function signin(Request $request){
         $obj = new UserRepository();
 
         $request->validate([
@@ -24,11 +27,9 @@ class SecurityController extends Controller
 
         if($result->code == Constantes::CODE_SUCCESSFULLY) {
             $request->session()->put(Constantes::LOGIN_ID, $result->object->id_usuario);
-            return redirect('/dashboard');
+            return redirect('/panel');
         } else {
             return back()->with('fail', $result->message);
         }
-
-        //return response()->json(json_encode($obj->));
     }
 }

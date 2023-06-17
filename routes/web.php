@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SecurityController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,11 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-
-Route::post('/inicio-sesion', [SecurityController::class, 'inicarSesion']);
-
-Route::get('/principal', [HomeController::class, 'home']);
-
-Route::get('/roles', [CatalogController::class, 'roles']);
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/', [SecurityController::class, 'login']);
+Route::post('/iniciar-sesion', [SecurityController::class, 'signin']);
+Route::get('/panel', [DashboardController::class, 'dashboard']);
+Route::get('/roles', [CatalogController::class, 'rols']);

@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('opcion_rol', function (Blueprint $table) {
-            $table->bigIncrements('id_opcion_rol');
-            $table->unsignedBigInteger('id_opcion')->index('fk_or_opciones');
-            $table->unsignedBigInteger('id_rol')->index('fk_or_roles');
-            $table->char('estado', 1)->nullable();
+        Schema::create('usuarios', function (Blueprint $table) {
+            $table->bigIncrements('id_usuario');
+            $table->string('usuario', 25)->unique('usuario');
+            $table->string('contrasenia', 250);
+            $table->char('estado', 1);
             $table->dateTime('fecha_creacion')->nullable()->useCurrent();
             $table->dateTime('fecha_modificacion')->nullable();
-            $table->string('usuario_creacion', 25)->nullable();
-            $table->string('usuario_modificacion', 25)->nullable();
         });
     }
 
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('opcion_rol');
+        Schema::dropIfExists('usuarios');
     }
 };
