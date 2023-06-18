@@ -33,10 +33,10 @@ class SecurityController extends Controller
         }
     }
 
-    public function logout(){
+    public function logout(Request $request){
         if($request->session()->has(Constantes::LOGIN_ID)){
             $request->session()->put(Constantes::LOGIN_ID);
-            return redirect('/iniciar-sesion');
+            return redirect('/');
         }
     }
 }
