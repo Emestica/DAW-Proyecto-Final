@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [SecurityController::class, 'login']);
+Route::get('/cerrar-session', [SecurityController::class, 'logout']);
 Route::post('/iniciar-sesion', [SecurityController::class, 'signin']);
 Route::get('/panel', [DashboardController::class, 'dashboard']);
 Route::resource('/roles', RolController::class);

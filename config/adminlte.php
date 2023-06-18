@@ -320,6 +320,11 @@ return [
             'text' => 'Usuario',
             'url'  => '/usuario',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Cerrar Sesion',
+            'url'  => '/cerrar-session',
+            'icon' => 'fa-solid fa-arrow-right-from-bracket',
         ]
     ],
 

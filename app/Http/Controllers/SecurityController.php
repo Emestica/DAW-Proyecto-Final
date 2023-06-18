@@ -32,4 +32,11 @@ class SecurityController extends Controller
             return back()->with('fail', $result->message);
         }
     }
+
+    public function logout(){
+        if($request->session()->has(Constantes::LOGIN_ID)){
+            $request->session()->put(Constantes::LOGIN_ID);
+            return redirect('/iniciar-sesion');
+        }
+    }
 }
