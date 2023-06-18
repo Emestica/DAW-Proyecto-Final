@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class CatalogController extends Controller
 {
     public function rols(){
-        return view('catalog.rols', [ 'pageName' => Constantes::PAGE_NAME_ROLS ]);
+
     }
 }

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Cliente
- * 
+ *
  * @property int $id_cliente
  * @property string|null $nombres
  * @property string|null $apellidos
@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $fecha_modificacion
  * @property string|null $usuario_creacion
  * @property string|null $usuario_modificacion
- * 
+ *
  * @property Collection|Categoria[] $categorias
  * @property Collection|ClienteDireccion[] $cliente_direccions
  * @property Collection|ClienteNumero[] $cliente_numeros

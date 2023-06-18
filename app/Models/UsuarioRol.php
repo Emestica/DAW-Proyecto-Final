@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class UsuarioRol
- * 
+ *
  * @property int $id_usuario_rol
  * @property int $id_usuario
  * @property int $id_rol
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $fecha_modificacion
  * @property string|null $usuario_creacion
  * @property string|null $usuario_modificacion
- * 
+ *
  * @property Role $role
  * @property Usuario $usuario
  *

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Role
- * 
+ *
  * @property int $id_rol
  * @property string|null $rol
  * @property string|null $descripcion
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $fecha_modificacion
  * @property string|null $usuario_creacion
  * @property string|null $usuario_modificacion
- * 
+ *
  * @property Collection|UsuarioRol[] $usuario_rols
  *
  * @package App\Models

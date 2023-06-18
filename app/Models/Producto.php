@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Producto
- * 
+ *
  * @property int $id_producto
  * @property string|null $descripcion
  * @property string|null $tipo_producto
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $fecha_modificacion
  * @property string|null $usuario_creacion
  * @property string|null $usuario_modificacion
- * 
+ *
  * @property Collection|Cliente[] $clientes
  *
  * @package App\Models

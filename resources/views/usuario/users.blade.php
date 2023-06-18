@@ -1,20 +1,24 @@
+{{-- @extends('general\layout') --}}
 @extends('adminlte::page')
 
-@section('title', 'Roles')
+@section('title', 'Usuarios')
 
 @section('content_header')
-    <h1>Roles</h1>
+    <h1>Usuarios</h1>
+@stop
+
+@section('content')
 
 <div class="card">
     <div class="card-header">
-        <h6>Formulario para roles.</h6>
+        <h6>Formulario para Usuarios.</h6>
     </div>
     <div class="card-body">
         <form action="/guardar-rol" method="post">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="ipt-rol">Rol:</label>
+                        <label for="ipt-rol">Usuario:</label>
                         <input type="text" name="rol" id="ipt-rol" class="form-control" maxlength="50">
                     </div>
                 </div>
@@ -30,10 +34,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="txt-descripcion">Descripcion:</label>
-                        <textarea name="descripcion" id="txt-descripcion" class="form-control" style="resize: none;" rows="3" maxlength="250"></textarea>
+                        <label for="ipt-rol">Contraseña:</label>
+                        <input type="text" name="rol" id="ipt-rol" class="form-control" maxlength="50">
                     </div>
                 </div>
             </div>
@@ -53,8 +57,7 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>#</th>
-                                <th>Rol</th>
-                                <th>Descripcion</th>
+                                <th>Usuario</th>
                                 <th>Estado</th>
                                 <th></th>
                                 <th></th>
@@ -62,16 +65,15 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($rol as $rol)
+                            @foreach ($usuario as $usuario)
 
                             <tr>
-                                <td>{{$rol->id_rol}}</td>
-                                <td>{{$rol->rol}}</td>
-                                <td>{{$rol->descripcion}}</td>
-                                <td>{{$rol->estado}}</td>
-                                <td><a href="{{url('catalog/'.$rol->id_rol.'/edit')}}" class="btn btn-success btn-sm">Editar</a></td>
+                                <td>{{$usuario->id_usuario}}</td>
+                                <td>{{$usuario->usuario}}</td>
+                                <td>{{$usuario->estado}}</td>
+                                <td><a href="{{url('catalog/'.$usuario->id_usuario.'/edit')}}" class="btn btn-success btn-sm">Editar</a></td>
                                 <td>
-                                    <form action="{{url('catalog/' .$rol->id_rol)}}" method="post">
+                                    <form action="{{url('catalog/' .$usuario->id_usuario)}}" method="post">
                                         @method("DELETE")
                                         @csrf
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>

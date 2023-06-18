@@ -1,21 +1,30 @@
 @extends('adminlte::page')
 
-@section('title', 'Roles')
+@section('title', 'Productos')
 
 @section('content_header')
-    <h1>Roles</h1>
+    <h1>Productos</h1>
+@stop
+
+@section('content')
 
 <div class="card">
     <div class="card-header">
-        <h6>Formulario para roles.</h6>
+        <h6>Formulario para Productos.</h6>
     </div>
     <div class="card-body">
         <form action="/guardar-rol" method="post">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="ipt-rol">Rol:</label>
-                        <input type="text" name="rol" id="ipt-rol" class="form-control" maxlength="50">
+                        <label for="slt-rol">Tipo de Producto:</label>
+                        <select name="estado" id="slt-estado" class="form-control">
+                            <option value="0">Seleccione un tipo</option>
+                            <option value="A">Préstamo</option>
+                            <option value="A">Tarjeta de débido</option>
+                            <option value="A">Tarjeta de crédito</option>
+                            <option value="A">Cuenta de ahorro</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -32,7 +41,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="txt-descripcion">Descripcion:</label>
+                        <label for="txt-descripcion">Descripción:</label>
                         <textarea name="descripcion" id="txt-descripcion" class="form-control" style="resize: none;" rows="3" maxlength="250"></textarea>
                     </div>
                 </div>
@@ -53,8 +62,8 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>#</th>
-                                <th>Rol</th>
-                                <th>Descripcion</th>
+                                <th>Descripción</th>
+                                <th>Tipo Producto</th>
                                 <th>Estado</th>
                                 <th></th>
                                 <th></th>
@@ -62,16 +71,16 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($rol as $rol)
+                            @foreach ($productos as $producto)
 
                             <tr>
-                                <td>{{$rol->id_rol}}</td>
-                                <td>{{$rol->rol}}</td>
-                                <td>{{$rol->descripcion}}</td>
-                                <td>{{$rol->estado}}</td>
-                                <td><a href="{{url('catalog/'.$rol->id_rol.'/edit')}}" class="btn btn-success btn-sm">Editar</a></td>
+                                <td>{{$producto->id_producto}}</td>
+                                <td>{{$producto->descripcion}}</td>
+                                <td>{{$producto->tipo_producto}}</td>
+                                <td>{{$producto->estado}}</td>
+                                <td><a href="{{url('catalog/'.$producto->id_producto.'/edit')}}" class="btn btn-success btn-sm">Editar</a></td>
                                 <td>
-                                    <form action="{{url('catalog/' .$rol->id_rol)}}" method="post">
+                                    <form action="{{url('catalog/' .$producto->id_producto)}}" method="post">
                                         @method("DELETE")
                                         @csrf
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
