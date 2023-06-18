@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Utils\Constantes;
+use Illuminate\Support\Facades\Validator;
+
 
 class UsuarioController extends Controller
 {
@@ -26,7 +28,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('usuario.users');
     }
 
     /**
@@ -37,7 +39,34 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+            'required' => 'El campo :attribute es requerido.',
+            'date' => 'El campo :attribute debe ser una fecha valida',
+        ];
+
+        $this->validate($request, [
+            'estado' => 'required',
+            'pass' => 'required|string',
+            'fechaCreate' => 'required|date',
+            'fechaMod' => 'required|date',
+        ], $messages);
+
+        $usuario = new Usuario();
+        $user = $request->input('user');
+        $estado = $request->input('estado');
+        $pass = $request->input('pass');
+        $fechaCreate = $request->input('fechaCreate');
+        $fechaMod = $request->input('fechaMod');
+
+        $usuario->usuario = $user;
+        $usuario->estado = $estado;
+        $usuario->contrasenia = $pass;
+        $usuario->fecha_creacion = $fechaCreate;
+        $usuario->fecha_modificacion = $fechaMod;
+
+        $usuario->save();
+
+        return redirect("usuario");
     }
 
     /**
@@ -59,7 +88,8 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuarios = Usuario::find($id);
+        return view('usuario.edit', ['usuario' => $usuarios]);
     }
 
     /**
@@ -71,7 +101,34 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $messages = [
+            'required' => 'El campo :attribute es requerido.',
+            'date' => 'El campo :attribute debe ser una fecha valida',
+        ];
+
+        $this->validate($request, [
+            'estado' => 'required',
+            'pass' => 'required|string',
+            'fechaCreate' => 'required|date',
+            'fechaMod' => 'required|date',
+        ], $messages);
+
+        $usuario = Usuario::find($id);
+        $user = $request->input('user');
+        $estado = $request->input('estado');
+        $pass = $request->input('pass');
+        $fechaCreate = $request->input('fechaCreate');
+        $fechaMod = $request->input('fechaMod');
+
+        $usuario->usuario = $user;
+        $usuario->estado = $estado;
+        $usuario->contrasenia = $pass;
+        $usuario->fecha_creacion = $fechaCreate;
+        $usuario->fecha_modificacion = $fechaMod;
+
+        $usuario->save();
+
+        return redirect("usuario");
     }
 
     /**
@@ -82,6 +139,9 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = Usuario::find($id);
+        $usuario->delete();
+
+        return redirect("usuario");
     }
 }

@@ -25,7 +25,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('cliente.cliente');
     }
 
     /**
@@ -36,7 +36,26 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clientes = new Cliente();
+        $nombres = $request->input('name');
+        $apellidos = $request->input('apellido');
+        $dui = $request->input('dui');
+        $fechaNac = $request->input('fechaNac');
+        $edad = $request->input('edad');
+        $email = $request->input('mail');
+        $estado = $request->input('estado');
+
+        $clientes->nombres = $nombres;
+        $clientes->apellidos = $apellidos;
+        $clientes->dui = $dui;
+        $clientes->fecha_nacimiento = $fechaNac;
+        $clientes->edad = $edad;
+        $clientes->correo_electronico = $email;
+        $clientes->estado = $estado;
+
+        $clientes->save();
+
+        return redirect("cliente");
     }
 
     /**
@@ -58,7 +77,8 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $clientes = Cliente::find($id);
+        return view('usuario.edit', ['cliente' => $clientes]);
     }
 
     /**

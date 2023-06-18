@@ -12,14 +12,14 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Usuario
- * 
+ *
  * @property int $id_usuario
  * @property string $usuario
  * @property string $contrasenia
  * @property string $estado
  * @property Carbon|null $fecha_creacion
  * @property Carbon|null $fecha_modificacion
- * 
+ *
  * @property Collection|Cliente[] $clientes
  * @property Collection|Empleado[] $empleados
  * @property Collection|UsuarioRol[] $usuario_rols

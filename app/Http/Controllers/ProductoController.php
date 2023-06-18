@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Producto;
-
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -25,7 +25,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        return view('producto.producto');
     }
 
     /**
@@ -36,7 +36,18 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $productos = new Producto();
+        $tipoProductos = $request->input('tipo');
+        $estado = $request->input('estado');
+        $descripcion = $request->input('descripcion');
+
+        $productos->tipo_producto = $tipoProductos;
+        $productos->estado = $estado;
+        $productos->descripcion = $descripcion;
+
+        $productos->save();
+
+        return redirect("producto");
     }
 
     /**
@@ -58,7 +69,8 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $productos = Producto::find($id);
+        return view('producto.edit', ['producto' => $productos]);
     }
 
     /**
@@ -70,7 +82,18 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $productos = Producto::find($id);
+        $tipoProductos = $request->input('tipo');
+        $estado = $request->input('estado');
+        $descripcion = $request->input('descripcion');
+
+        $productos->tipo_producto = $tipoProductos;
+        $productos->estado = $estado;
+        $productos->descripcion = $descripcion;
+
+        $productos->save();
+
+        return redirect("producto");
     }
 
     /**
@@ -81,6 +104,9 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $productos = Producto::find($id);
+        $productos->delete();
+
+        return redirect("producto");
     }
 }

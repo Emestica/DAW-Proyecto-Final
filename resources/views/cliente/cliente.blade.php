@@ -13,18 +13,35 @@
         <h6>Formulario para Clientes.</h6>
     </div>
     <div class="card-body">
-        <form action="/guardar-rol" method="post">
+
+        @if ($errors -> any())
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+
+        <form action="{{ url('cliente') }}" method="post">
+
+            @csrf
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="ipt-rol">Nombres:</label>
-                        <input type="text" name="rol" id="ipt-rol" class="form-control" maxlength="50">
+                        <input type="text" name="name" id="name" class="form-control" maxlength="50">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="ipt-rol">Apellidos:</label>
-                        <input type="text" name="rol" id="ipt-rol" class="form-control" maxlength="50">
+                        <input type="text" name="apellido" id="ipt-rol" class="form-control" maxlength="50">
                     </div>
                 </div>
             </div>
@@ -32,7 +49,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="ipt-rol">DUI:</label>
-                        <input type="text" name="rol" id="ipt-rol" class="form-control" maxlength="50">
+                        <input type="text" name="dui" id="ipt-rol" class="form-control" maxlength="50">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -48,7 +65,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="ipt-rol">Edad:</label>
-                        <input type="text" name="rol" id="ipt-rol" class="form-control" maxlength="50">
+                        <input type="int" name="edad" id="ipt-rol" class="form-control" maxlength="50">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -66,14 +83,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="ipt-rol">Correo Eltrónico:</label>
-                        <input type="text" name="rol" id="ipt-rol" class="form-control" maxlength="50">
+                        <input type="text" name="mail" id="ipt-rol" class="form-control" maxlength="50">
                     </div>
                 </div>
             </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary" style="float: right;">Guardar</button>
+            </div>
         </form>
-    </div>
-    <div class="card-footer">
-        <button type="submit" class="btn btn-primary" style="float: right;">Guardar</button>
     </div>
 </div>
 <hr>
@@ -110,9 +127,9 @@
                                 <td>{{$cliente->edad}}</td>
                                 <td>{{$cliente->correo_electronico}}</td>
                                 <td>{{$cliente->estado}}</td>
-                                <td><a href="{{url('catalog/'.$cliente->id_cliente.'/edit')}}" class="btn btn-success btn-sm">Editar</a></td>
+                                <td><a href="{{url('cliente/'.$cliente->id_cliente.'/edit')}}" class="btn btn-success btn-sm">Editar</a></td>
                                 <td>
-                                    <form action="{{url('catalog/' .$cliente->id_cliente)}}" method="post">
+                                    <form action="{{url('cliente/' .$cliente->id_cliente)}}" method="post">
                                         @method("DELETE")
                                         @csrf
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>

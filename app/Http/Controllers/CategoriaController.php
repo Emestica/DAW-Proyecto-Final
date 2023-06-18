@@ -24,7 +24,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('categoria.categoria');
     }
 
     /**
@@ -35,7 +35,22 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categorias = new Categoria();
+        $tipocategoria = $request->input('tipo');
+        $estado = $request->input('estado');
+        $descripcion = $request->input('descripcion');
+        $porcentaje = $request->input('porcentaje');
+        $porcentajed = $request->input('porcentajed');
+
+        $categorias->categoria = $tipocategoria;
+        $categorias->estado = $estado;
+        $categorias->descripcion = $descripcion;
+        $categorias->porcentaje = $porcentaje;
+        $categorias->porcentaje_decimal= $porcentajed;
+
+        $categorias->save();
+
+        return redirect("categoria");
     }
 
     /**
@@ -57,7 +72,8 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categorias = Categoria::find($id);
+        return view('categoria.edit', ['categoria' => $categorias]);
     }
 
     /**
@@ -69,7 +85,22 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $categorias = Categoria::find($id);
+        $tipocategoria = $request->input('tipo');
+        $estado = $request->input('estado');
+        $descripcion = $request->input('descripcion');
+        $porcentaje = $request->input('porcentaje');
+        $porcentajed = $request->input('porcentajed');
+
+        $categorias->categoria = $tipocategoria;
+        $categorias->estado = $estado;
+        $categorias->descripcion = $descripcion;
+        $categorias->porcentaje = $porcentaje;
+        $categorias->porcentaje_decimal= $porcentajed;
+
+        $categorias->save();
+
+        return redirect("categoria");
     }
 
     /**
@@ -80,6 +111,9 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $categorias = Categoria::find($id);
+        $categorias->delete();
+
+        return redirect("categoria");
     }
 }

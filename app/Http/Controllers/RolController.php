@@ -15,7 +15,7 @@ class RolController extends Controller
     public function index()
     {
         $rol = Role::all();
-        return view('catalog.rols', [ 'rol' => $rol]);
+        return view('rol.rols', [ 'rol' => $rol]);
     }
 
     /**
@@ -25,7 +25,7 @@ class RolController extends Controller
      */
     public function create()
     {
-        //
+        return view('rol.rols');
     }
 
     /**
@@ -36,7 +36,28 @@ class RolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+            'required' => 'El campo :attribute es requerido.',
+        ];
+
+        $this->validate($request, [
+            'rol' => 'required|string',
+            'estado' => 'required',
+            'descripcion' => 'required|string',
+        ], $messages);
+
+        $rol = new Role();
+        $rols = $request->input('rol');
+        $estado = $request->input('estado');
+        $descripcion = $request->input('descripcion');
+
+        $rol->rol = $rols;
+        $rol->estado = $estado;
+        $rol->descripcion = $descripcion;
+
+        $rol->save();
+
+        return redirect("roles");
     }
 
     /**
@@ -58,7 +79,8 @@ class RolController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rols = Role::find($id);
+        return view('rol.edit',compact('rols'));
     }
 
     /**
@@ -70,7 +92,18 @@ class RolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rol = Role::find($id);
+        $rols = $request->input('rol');
+        $estado = $request->input('estado');
+        $descripcion = $request->input('descripcion');
+
+        $rol->rol = $rols;
+        $rol->estado = $estado;
+        $rol->descripcion = $descripcion;
+
+        $rol->save();
+
+        return redirect("roles");
     }
 
     /**
@@ -81,6 +114,9 @@ class RolController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rol = Role::find($id);
+        $rol->delete();
+
+        return redirect("roles");
     }
 }
